@@ -1,0 +1,247 @@
+<div id="workarea">
+    <div id="sidebar">
+        <div id="OWNER_selector_content" class="finder-box" style="display: none;">
+            <table class="finder-box-layout" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="finder-box-left-column">
+                            <div class="finder-box-search"><input name="OWNER_user_input" autocomplete="off" id="OWNER_user_input"
+                                    class="finder-box-search-textbox"></div>
+                            <div class="finder-box-tabs">
+                                <span class="finder-box-tab finder-box-tab-selected" id="OWNER_tab_last" onclick="O_OWNER.displayTab('last');">
+                                    <span class="finder-box-tab-left"></span>
+                                    <span class="finder-box-tab-text">Последние</span>
+                                    <span class="finder-box-tab-right"></span>
+                                </span>
+                                <span class="finder-box-tab" id="OWNER_tab_structure" onclick="O_OWNER.displayTab('structure');">
+                                    <span class="finder-box-tab-left"></span>
+                                    <span class="finder-box-tab-text">Компания</span>
+                                    <span class="finder-box-tab-right"></span>
+                                </span>
+                                <span class="finder-box-tab" id="OWNER_tab_search" onclick="O_OWNER.displayTab('search'), O_OWNER.searchInput.focus();">
+                                    <span class="finder-box-tab-left"></span>
+                                    <span class="finder-box-tab-text">Поиск</span>
+                                    <span class="finder-box-tab-right"></span>
+                                </span>
+                            </div>
+
+                            <div class="popup-window-hr popup-window-buttons-hr"><i></i></div>
+                            <div class="finder-box-tabs-content">
+                                <div class="finder-box-tab-content finder-box-tab-content-selected" id="OWNER_last">
+                                    <table class="finder-box-tab-columns" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="finder-box-item" id="OWNER_last_employee_1" onclick="O_OWNER.select(event)">
+                                                        <input type="radio" name="OWNER" value="1" class="intranet-hidden-input">
+                                                        <div class="finder-box-item-text" bx-tooltip-user-id="1"
+                                                            bx-tooltip-classname="intrantet-user-selector-tooltip">zhitko.vladimir@gmail.com</div>
+                                                        <div class="finder-box-item-icon"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="finder-box-tab-content" id="OWNER_structure">
+                                    <div class="company-structure">
+                                        <div class="company-department company-department-first"><span class="company-department-inner"
+                                                onclick="O_OWNER.load('1')" id="OWNER_employee_section_1">
+                                                <div class="company-department-arrow"></div>
+                                                <div class="company-department-text">Моя компания</div>
+                                            </span></div>
+                                        <div class="company-department-children" id="OWNER_children_1">
+                                            <div class="company-department-employees" id="OWNER_employees_1"><span
+                                                    class="company-department-employees-loading">Подождите, идет
+                                                    загрузка списка...</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="finder-box-tab-content" id="OWNER_search"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="MEMBER_selector_content" class="finder-box" style="display: none;">
+            <table class="finder-box-layout" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="finder-box-left-column">
+                            <div class="finder-box-search"><input name="MEMBER_user_input" autocomplete="off" id="MEMBER_user_input"
+                                    class="finder-box-search-textbox"></div>
+                            <div class="finder-box-tabs">
+                                <span class="finder-box-tab finder-box-tab-selected" id="MEMBER_tab_last" onclick="O_MEMBER.displayTab('last');">
+                                    <span class="finder-box-tab-left"></span>
+                                    <span class="finder-box-tab-text">Последние</span>
+                                    <span class="finder-box-tab-right"></span>
+                                </span>
+                                <span class="finder-box-tab" id="MEMBER_tab_structure" onclick="O_MEMBER.displayTab('structure');">
+                                    <span class="finder-box-tab-left"></span>
+                                    <span class="finder-box-tab-text">Компания</span>
+                                    <span class="finder-box-tab-right"></span>
+                                </span>
+                                <span class="finder-box-tab" id="MEMBER_tab_search" onclick="O_MEMBER.displayTab('search'), O_MEMBER.searchInput.focus();">
+                                    <span class="finder-box-tab-left"></span>
+                                    <span class="finder-box-tab-text">Поиск</span>
+                                    <span class="finder-box-tab-right"></span>
+                                </span>
+                            </div>
+
+                            <div class="popup-window-hr popup-window-buttons-hr"><i></i></div>
+                            <div class="finder-box-tabs-content">
+                                <div class="finder-box-tab-content finder-box-tab-content-selected" id="MEMBER_last">
+                                    <table class="finder-box-tab-columns" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="finder-box-item" id="MEMBER_last_employee_1" onclick="O_MEMBER.select(event)">
+                                                        <input type="radio" name="MEMBER" value="1" class="intranet-hidden-input">
+                                                        <div class="finder-box-item-text" bx-tooltip-user-id="1"
+                                                            bx-tooltip-classname="intrantet-user-selector-tooltip">zhitko.vladimir@gmail.com</div>
+                                                        <div class="finder-box-item-icon"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="finder-box-tab-content" id="MEMBER_structure">
+                                    <div class="company-structure">
+                                        <div class="company-department company-department-first"><span class="company-department-inner"
+                                                onclick="O_MEMBER.load('1')" id="MEMBER_employee_section_1">
+                                                <div class="company-department-arrow"></div>
+                                                <div class="company-department-text">Моя компания</div>
+                                            </span></div>
+                                        <div class="company-department-children" id="MEMBER_children_1">
+                                            <div class="company-department-employees" id="MEMBER_employees_1"><span
+                                                    class="company-department-employees-loading">Подождите, идет
+                                                    загрузка списка...</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="finder-box-tab-content" id="MEMBER_search"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="sidebar-block">
+            <b class="r2"></b>
+            <b class="r1"></b>
+            <b class="r0"></b>
+            <div class="sidebar-block-inner">
+                <form name="meeting_filter">
+                    <div class="filter-block-title">Фильтр</div>
+                    <div class="menu-filter-block">
+                        <div class="filter-field filter-field-name">
+                            <label class="filter-field-title" for="meeting-field-name">Название</label>
+                            <input type="text" name="FILTER[TITLE]" value="" class="filter-textbox" id="meeting-field-name"
+                                data-cip-id="meeting-field-name">
+                        </div>
+                        <div class="filter-field filter-field-stage">
+                            <label class="filter-field-title" for="meeting-field-stage">Стадия</label>
+                            <select name="FILTER[CURRENT_STATE]" class="filter-field-select" id="meeting-field-stage"
+                                data-cip-id="jQuery342845639">
+                                <option value="0">(все)</option>
+                                <option value="P">Не началась</option>
+                                <option value="A">Идет</option>
+                                <option value="C">Завершена</option>
+                            </select>
+                        </div>
+                        <div class="filter-field filter-field-organizer">
+                            <label class="filter-field-title" for="meeting-field-organizer">Организатор</label>
+                            <span id="meeting_owner_name"></span><a href="javascript:void(0)" class="webform-field-action-link"
+                                onclick="BXFilterSelectOwner(this, 'owner')">Выбрать</a>
+                        </div>
+                        <div class="filter-field filter-field-member">
+                            <label class="filter-field-title" for="meeting-field-member">Участник</label>
+                            <span id="meeting_member_name"></span><a href="javascript:void(0)" class="webform-field-action-link"
+                                onclick="BXFilterSelectOwner(this, 'member')">Выбрать</a>
+                        </div>
+                        <div class="filter-field filter-field-group">
+                            <label class="filter-field-title">Проект</label>
+                            <span id="meeting_group_name"></span><a href="javascript:void(0)" class="webform-field-action-link"
+                                onclick="groupsPopup.show()">Выбрать</a>
+                        </div>
+                        <div class="filter-field filter-field-meeting-checkbox">
+                            <input type="checkbox" class="meetings-filter-checkbox" name="FILTER[MY]" id="meeting-checkbox-sub"
+                                value="Y" checked="checked">
+                            <label class="filter-field-title" for="meeting-checkbox-sub">Только мои планерки</label>
+                        </div>
+                        <div class="filter-field-buttons">
+                            <input type="submit" value="Найти" class="filter-submit">&nbsp;&nbsp;<input type="button"
+                                name="del_filter_company_search" value="Отмена" class="filter-submit" onclick="window.location.href='/timeman/meeting/'; return false;">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <i class="r0"></i>
+            <i class="r1"></i>
+            <i class="r2"></i>
+        </div>
+    </div>
+    <div id="workarea-content">
+        <div class="workarea-content-paddings">
+            <div class="meeting-list">
+                <div class="meeting-list-left-corner"></div>
+                <div class="meeting-list-right-corner"></div>
+                <table cellspacing="0" class="meeting-list-table">
+                    <colgroup>
+                        <col class="meeting-item-column">
+                        <col class="meeting-menu-column">
+                        <col class="meeting-date-column">
+                        <col class="meeting-stage-column">
+                        <col class="meeting-organizer-column">
+                        <col class="meeting-place-column">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th colspan="2" class="meeting-item-column">
+                                <div class="meeting-head-cell"><span class="meeting-head-cell-title">Тема</span></div>
+                            </th>
+                            <th class="meeting-date-column">
+                                <div class="meeting-head-cell"><span class="meeting-head-cell-title">Дата</span></div>
+                            </th>
+                            <th class="meeting-stage-column">
+                                <div class="meeting-head-cell"><span class="meeting-head-cell-title">Стадия</span></div>
+                            </th>
+                            <th class="meeting-organizer-column">
+                                <div class="meeting-head-cell"><span class="meeting-head-cell-title">Организатор</span></div>
+                            </th>
+                            <th class="meeting-place-column">
+                                <div class="meeting-head-cell"><span class="meeting-head-cell-title">Место</span></div>
+                            </th>
+                        </tr>
+                        <tr class="meeting-list-item meeting-stage-not-started" id="meeting_row_1">
+                            <td class="meeting-item-column">
+                                <div class="meeting-column-wrap"><a href="/timeman/meeting/meeting/1/" class="meeting-title-link"
+                                        title="Внедрение Корпоративного Портала">Внедрение Корпоративного Портала</a></div>
+                            </td>
+                            <td class="meeting-menu-column"><a href="javascript:void(0)" class="meeting-menu-button"
+                                    onclick="return ShowMenuPopup(1, this);"><i class="meeting-menu-button-icon"></i></a></td>
+                            <td class="meeting-date-column"><span class="meeting-date-start">27.01.2019 00:00&nbsp;</span></td>
+                            <td class="meeting-stage-column"><span class="meeting-stage">Не началась</span></td>
+                            <td class="meeting-organizer-column">
+                                <div class="meeting-column-wrap"><a href="/company/personal/user/1/" id="anchor_ePqZMSU1"
+                                        bx-tooltip-user-id="1">zhitko.vladimir@gmail.com</a></div>
+                            </td>
+                            <td class="meeting-place-column">
+                                <div class="meeting-column-wrap"><span class="meeting-place" title="Кабинет начальника">Кабинет
+                                        начальника&nbsp;</span></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="meeting-list-nav">
+            </div>
+        </div>
+    </div>
+</div>

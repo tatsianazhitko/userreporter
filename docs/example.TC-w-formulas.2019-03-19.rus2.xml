@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Roman Shpakovsky</Author>
+  <LastAuthor>user</LastAuthor>
+  <Revision>0</Revision>
+  <TotalTime>0</TotalTime>
+  <LastPrinted>2019-03-19T08:58:08Z</LastPrinted>
+  <Created>2019-03-19T08:34:04Z</Created>
+  <LastSaved>2019-03-19T10:42:08Z</LastSaved>
+  <Paragraphs>en-US</Paragraphs>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <AppVersion dt:dt="string">16.0300</AppVersion>
+  <DocSecurity dt:dt="float">0</DocSecurity>
+  <HyperlinksChanged dt:dt="boolean">0</HyperlinksChanged>
+  <LinksUpToDate dt:dt="boolean">0</LinksUpToDate>
+  <ScaleCrop dt:dt="boolean">0</ScaleCrop>
+  <ShareDoc dt:dt="boolean">0</ShareDoc>
+ </CustomDocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>8190</WindowHeight>
+  <WindowWidth>16380</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <TabRatio>500</TabRatio>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:CharSet="1" x:Family="Swiss" ss:Size="11"
+    ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s29">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Arial" x:CharSet="1" x:Family="Swiss" ss:Size="9" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s35">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Arial" x:CharSet="1" x:Family="Swiss" ss:Size="9" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s36">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Arial" x:CharSet="1" x:Family="Swiss" ss:Size="9" ss:Bold="1"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s37">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Arial" x:CharSet="1" x:Family="Swiss" ss:Size="9"
+    ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s38">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s39">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Arial" x:CharSet="1" x:Family="Swiss" ss:Size="9"
+    ss:Color="#000000"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s41">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Arial" x:CharSet="1" x:Family="Swiss" ss:Size="9"
+    ss:Color="#000000" ss:Bold="1"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="result">
+  <Table ss:ExpandedColumnCount="1025" ss:ExpandedRowCount="15" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="53.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="91.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="201"/>
+   <Column ss:AutoFitWidth="0" ss:Width="75.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="39"/>
+   <Column ss:AutoFitWidth="0" ss:Width="45.75" ss:Span="1019"/>
+   <Row>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">Position</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">Employee</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">Time</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">Rate</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">Amount</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="24.75">
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Associate Partner</Data></Cell>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Urodnich Eugenia </Data></Cell>
+    <Cell ss:StyleID="s37" ss:Formula="=SUMIF(R9C2:R13C5,&quot;=&quot;&amp;RC[-1],R9C5:R13C5)"><Data
+      ss:Type="Number">0.1</Data></Cell>
+    <Cell ss:StyleID="s38"><Data ss:Type="Number">120</Data></Cell>
+    <Cell ss:StyleID="s39" ss:Formula="=RC[-1]*RC[-2]"><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="String">Можем начать с 2х наборов рейтов (можем с 1 если критично)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Associate</Data></Cell>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Khaladtsova Volha </Data></Cell>
+    <Cell ss:StyleID="s37" ss:Formula="=SUMIF(R9C2:R13C5,&quot;=&quot;&amp;RC[-1],R9C5:R13C5)"><Data
+      ss:Type="Number">1.2</Data></Cell>
+    <Cell ss:StyleID="s38"><Data ss:Type="Number">85</Data></Cell>
+    <Cell ss:StyleID="s39" ss:Formula="=RC[-1]*RC[-2]"><Data ss:Type="Number">102</Data></Cell>
+    <Cell><Data ss:Type="String">Рейты подтягиваются исходя из названия должности (Position)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.75">
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Trainee</Data></Cell>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Krauchanka Yahor </Data></Cell>
+    <Cell ss:StyleID="s37" ss:Formula="=SUMIF(R9C2:R13C5,&quot;=&quot;&amp;RC[-1],R9C5:R13C5)"><Data
+      ss:Type="Number">0.8</Data></Cell>
+    <Cell ss:StyleID="s38"><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="s39" ss:Formula="=RC[-1]*RC[-2]"><Data ss:Type="Number">20</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:MergeAcross="1" ss:StyleID="s29"><Data ss:Type="String">Total:</Data></Cell>
+    <Cell ss:StyleID="s35" ss:Formula="=SUM(R[-3]C:R[-1]C)"><Data ss:Type="Number">2.1</Data></Cell>
+    <Cell ss:StyleID="s39"/>
+    <Cell ss:StyleID="s41" ss:Formula="=SUM(R[-3]C:R[-1]C)"><Data ss:Type="Number">134</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s35"/>
+    <Cell ss:StyleID="s35"/>
+    <Cell ss:StyleID="s35"/>
+    <Cell ss:StyleID="s37"/>
+    <Cell ss:StyleID="s37"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">Date</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">Employee</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">Task</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">Comment</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">Time</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="25.5">
+    <Cell ss:StyleID="s35"><Data ss:Type="String">Deal:</Data></Cell>
+    <Cell ss:MergeAcross="3" ss:StyleID="s29"><Data ss:Type="String">Подготовка памятки для сотрудников-иностранцев из РФ по налоговым вопросам и вопросам социальной защиты</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">21.02.2019</Data></Cell>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Khaladtsova Volha </Data></Cell>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Подготовка плана памятки.</Data></Cell>
+    <Cell ss:StyleID="s37"/>
+    <Cell ss:StyleID="s37"><Data ss:Type="Number">0.2</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">22.02.2019</Data></Cell>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Khaladtsova Volha </Data></Cell>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Подготовка плана памятки.</Data></Cell>
+    <Cell ss:StyleID="s37"/>
+    <Cell ss:StyleID="s37"><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="25.5">
+    <Cell ss:StyleID="s37"><Data ss:Type="String">26.02.2019</Data></Cell>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Urodnich Eugenia </Data></Cell>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Проверка плана памятки для работников РФ, трудоустроенных в ООО Белка Геймз.</Data></Cell>
+    <Cell ss:StyleID="s37"/>
+    <Cell ss:StyleID="s37"><Data ss:Type="Number">0.1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="23.25">
+    <Cell ss:StyleID="s37"><Data ss:Type="String">27.02.2019</Data></Cell>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Khaladtsova Volha </Data></Cell>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Мэйл Дмитрию Савицкому для согласования памятки.</Data></Cell>
+    <Cell ss:StyleID="s37"/>
+    <Cell ss:StyleID="s37"><Data ss:Type="Number">0.2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s37"><Data ss:Type="String">28.02.2019</Data></Cell>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Krauchanka Yahor </Data></Cell>
+    <Cell ss:StyleID="s37"><Data ss:Type="String">Подготовка памятки по вопросам налогообложения и социального страхования для ООО Белка Геймз.</Data></Cell>
+    <Cell ss:StyleID="s37"/>
+    <Cell ss:StyleID="s37"><Data ss:Type="Number">0.8</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:MergeAcross="3" ss:StyleID="s29"><Data ss:Type="String">Subtotal:</Data></Cell>
+    <Cell ss:StyleID="s35" ss:Formula="=SUM(R[-5]C:R[-1]C)"><Data ss:Type="Number">2.1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:MergeAcross="3" ss:StyleID="s29"><Data ss:Type="String">Total:</Data></Cell>
+    <Cell ss:StyleID="s35" ss:Formula="=R[-1]C"><Data ss:Type="Number">2.1</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.51180555555555496"/>
+    <Footer x:Margin="0.51180555555555496"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
+   </Print>
+   <Zoom>196</Zoom>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
