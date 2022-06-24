@@ -87,7 +87,7 @@
                   <Data ss:Type="String">Unmarked</Data>
                 </Cell>
                 <Cell ss:StyleID="Normal">
-                  <Data ss:Type="Number">{{report.unmarket}}</Data>
+                  <Data ss:Type="Number">{{report.unmarked}}</Data>
                 </Cell>
               </Row>
               <Row></Row>

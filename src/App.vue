@@ -136,7 +136,7 @@ export default {
         admin: 0,
         marketing: 0,
         proBono: 0,
-        unmarket: 0,
+        unmarked: 0,
         hMonth85: 0,
         hMonth100: 0,
         period: "",
@@ -187,9 +187,8 @@ export default {
       this.elapsedItems = [];
       this.elapsedItemIds = [];
 
-      this.reportExists = false;
-
       this.setActiveJob("");
+      this.reportExists = false;
     },
 
     startLoading: function() {
@@ -240,7 +239,7 @@ export default {
     //     let billed = 0;
     //     let marketing = 0;
     //     let proBono = 0;
-    //     let unmarket = 0;
+    //     let unmarked = 0;
 
     //     _.each(self.elapsedItems, item => {
     //       total += Number(item.MINUTES);
@@ -257,7 +256,7 @@ export default {
     //               if (task.DEAL_ID) {
     //                 billed += Number(item.MINUTES);
     //               } else {
-    //                 unmarket += Number(item.MINUTES);
+    //                 unmarked += Number(item.MINUTES);
     //               }
     //               break;
     //             case 'Pro bono':
@@ -271,7 +270,7 @@ export default {
     //               break;
     //           }
     //         } else {
-    //           unmarket += Number(item.MINUTES);
+    //           unmarked += Number(item.MINUTES);
     //         }
 
 
@@ -284,7 +283,7 @@ export default {
     //     console.log('admin', admin);
     //     console.log('proBono', proBono);
     //     console.log('marketing', marketing);
-    //     console.log('unmarket', unmarket);
+    //     console.log('unmarked', unmarked);
 
     //     return 43;
     //   },
@@ -395,7 +394,7 @@ export default {
       this.report.admin = report.admin;
       this.report.marketing = report.marketing;
       this.report.proBono = report.proBono;
-      this.report.unmarket = report.unmarket;
+      this.report.unmarked = report.unmarked;
       this.report.hMonth85 = report.hMonth85;
       this.report.hMonth100 = report.hMonth100;
       this.report.period = report.period;

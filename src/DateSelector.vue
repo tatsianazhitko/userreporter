@@ -13,6 +13,8 @@
         </div>
 
         <div class="filter-field months">
+            <input type="button" value="Last week" v-on:click="setFilterToLastWeek" />
+            <input type="button" value="This week" v-on:click="setFilterToThisWeek" />
             <input type="button" value="Last month" v-on:click="setFilterToLastMonth" />
             <input type="button" value="This month" v-on:click="setFilterToThisMonth" />
             <input type="button" value="Last quarter" v-on:click="setFilterToLastQuarter" />
@@ -64,6 +66,20 @@ export default {
         this.setFilterToLastMonth()
     },
     methods: {
+        setFilterToLastWeek: function() {
+            let self = this;
+            let start = moment().subtract(1, "isoWeek").startOf('isoWeek');
+            let end = moment().subtract(1, "isoWeek").endOf('isoWeek');
+            self.dateFrom = start.format("YYYY-MM-DD");
+            self.dateTo = end.format("YYYY-MM-DD");
+        },
+        setFilterToThisWeek: function() {
+            let self = this;
+            let start = moment().startOf('isoWeek');
+            let end = moment().endOf('isoWeek');
+            self.dateFrom = start.format("YYYY-MM-DD");
+            self.dateTo = end.format("YYYY-MM-DD");
+        },
         setFilterToLast3Month: function() {
             let self = this;
             let start = moment().subtract(3, "months").startOf('month');

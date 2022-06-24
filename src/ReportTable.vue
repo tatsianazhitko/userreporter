@@ -41,8 +41,8 @@
           <td class="report-row">{{report.proBono}}</td>
         </tr>
         <tr>
-          <td class="report-row reports-first-column">Unmarket</td>
-          <td class="report-row">{{report.unmarket}}</td>
+          <td class="report-row reports-first-column">Unmarked</td>
+          <td class="report-row">{{report.unmarked}}</td>
         </tr>
         <tr>
           <td class="report-row reports-first-column table-cell-bold">% 85h/month</td>
@@ -141,7 +141,7 @@ export default {
       billed: 0,
       marketing: 0,
       proBono: 0,
-      unmarket: 0,
+      unmarked: 0,
       hMonth85: 0,
       hMonth100: 0,
       groups_items: {}
@@ -162,7 +162,7 @@ export default {
       self.billed = new Hours(0);
       self.marketing = new Hours(0);
       self.proBono = new Hours(0);
-      self.unmarket = new Hours(0);
+      self.unmarked = new Hours(0);
 
       self.calcDataForReport();
       self.addDataToReport();
@@ -178,7 +178,7 @@ export default {
       this.report.billed = this.billed;
       this.report.marketing = this.marketing;
       this.report.proBono = this.proBono;
-      this.report.unmarket = this.unmarket;
+      this.report.unmarked = this.unmarked;
       this.report.hMonth85 = this.hMonth85;
       this.report.hMonth100 = this.hMonth100;
 
@@ -228,7 +228,7 @@ export default {
 
         let billedTasks = [];
         let adminTasks = [];
-        let unmarketTasks = [];
+        let unmarkedTasks = [];
         let marketingTasks = [];
         let proBonoTasks = [];
 
@@ -257,8 +257,8 @@ export default {
                     self.billed = self.billed.add(u.convertToHours(item.MINUTES));
                     billedTasks.push(item);
                   } else {
-                    self.unmarket = self.unmarket.add(u.convertToHours(item.MINUTES));
-                    unmarketTasks.push(item);
+                    self.unmarked = self.unmarked.add(u.convertToHours(item.MINUTES));
+                    unmarkedTasks.push(item);
                   }
                   break;
                 case 'Pro bono':
@@ -275,8 +275,8 @@ export default {
                   break;
               }
             } else {
-              self.unmarket = self.unmarket.add(u.convertToHours(item.MINUTES));
-              unmarketTasks.push(item);
+              self.unmarked = self.unmarked.add(u.convertToHours(item.MINUTES));
+              unmarkedTasks.push(item);
             }
           }
         });
@@ -286,7 +286,7 @@ export default {
           'Administrative': adminTasks,
           'Marketing': marketingTasks,
           'Pro bono': proBonoTasks,
-          'Unmarked Time': unmarketTasks
+          'Unmarked Time': unmarkedTasks
         }
 
         let numberOfDays = u.numberOfDay(self.selectedFromDate, self.selectedToDate);

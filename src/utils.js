@@ -15,7 +15,7 @@ export function getFIO(user) {
 }
 
 export function getPeriodToString(from, to) {
-  return `${moment(from).format('L')} - ${moment(to).format('L')}`;
+  return `${moment(from).format("MMM Do YYYY")} - ${moment(to).format("MMM Do YYYY")}`;
 }
 
 export function getTitle(item) {

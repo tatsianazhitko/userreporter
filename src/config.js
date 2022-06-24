@@ -1,5 +1,5 @@
-export const SITE = "https://b24-qnrzq8.bitrix24.by"
-//export const SITE = "https://legaltax.bitrix24.com"
+//export const SITE = "https://b24-qnrzq8.bitrix24.by"
+export const SITE = "https://legaltax.bitrix24.com"
 
 export const DEAL_ID = "DEAL_ID";
 
