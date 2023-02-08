@@ -182,14 +182,12 @@ export default {
     getFIO(user) {
       return u.getFIO(user);
     },
-
     getFIO: u.getFIO,
     getRate: function (user) {
       if (!user.WORK_POSITION) return 0;
       const workPosition = _.trim(user.WORK_POSITION.toLowerCase());
       return _.get(cfg.CURRENT_RATE, workPosition, 0);
     },
-
     getReportRateFormula: function (user, ir) {
       return `=R[${-8 - _.size(this.users)}]C * RC[${-2 - ir}]`;
     },

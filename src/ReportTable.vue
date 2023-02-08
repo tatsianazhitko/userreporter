@@ -166,9 +166,6 @@ export default {
 
       self.calcDataForReport();
       self.addDataToReport();
-
-      //console.log('report', this.report);
-
     },
 
     addDataToReport() {
@@ -231,12 +228,6 @@ export default {
         let unmarkedTasks = [];
         let marketingTasks = [];
         let proBonoTasks = [];
-
-
-        // console.log('CALC TIME FOR REPORT');
-        // console.log('elapsedItems', this.elapsedItems);
-        // console.log('tasks', this.tasks);
-        // console.log('taskIds', this.taskIds);
 
         _.each(self.elapsedItems, item => {
           self.total = self.total.add(u.convertToHours(item.MINUTES));
@@ -311,7 +302,6 @@ export default {
       let  index = _.findIndex(self.deals, deal => {
        return deal.ID == dealId;
       });
-
       return self.deals[index];
     },
 

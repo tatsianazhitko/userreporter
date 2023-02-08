@@ -221,6 +221,19 @@ export function findUsersForElapsedItems(elapsedItems) {
   });
 }
 
+export function findUsers(filter) {
+  return new Promise(function(resolve, reject) {
+    return bitrix.GetUsers(
+      { ID: "ASC" },
+      filter,
+      ["ID","LAST_NAME","NAME","SECOND_NAME"]
+    ).then(users => {
+      console.log("users", users);
+      resolve(users);
+    }).catch(error => reject(error));
+  });
+}
+
 export function findTasksForDeals(deals) {
   console.log("findTasksForDeals", deals);
 

@@ -134,8 +134,19 @@ export function GetUser(id) {
   return ApiGet("user.get", id);
 }
 
-export function GetUsers(order, filter, select, params, more = false) {
-  return ApiList("user.get", order, filter, select, more);
+export function GetUsers(order, filter) {
+  return new Promise(function(resolve, reject) {
+    BX24.callMethod('user.get', {
+      'ORDER': order,
+      'FILTER': filter
+    }, function(result) {
+      if (result.error()) {
+        reject(result.error());
+      } else {
+        resolve(result.data());
+      }
+    });
+  });
 }
 
 export function BatchUsers(params) {

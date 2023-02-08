@@ -1,11 +1,11 @@
 <template>
     <div>
         <div class="filter-field">
-          <label class="filter-field-title">User</label>
+          <label class="filter-field-title">Employee</label>
             <Autocomplete
               :items="filter_user_items"
               @update-items="updateUserItems"
-              @focus="updateUserItems"
+              @focus="focusUserItems"
               @input="selectUserItem"
               :min-len=0
               :component-item='filter_items_template'
@@ -18,61 +18,52 @@
 
 <script>
 var _ = require("lodash");
-import * as bitrix from './bitrix24.js';
+import * as bitrixHelper from './bitrix24Helper.js';
 import Autocomplete from "v-autocomplete";
 import ItemTemplate from './ItemTemplate.vue';
 
 import * as u from './utils';
 
 export default {
-    components: {
-        Autocomplete
+  components: {
+      Autocomplete
+  },
+  props: ['value'],
+  watch: {
+  },
+  data() {
+    return {
+      filter_items_template: ItemTemplate,
+      filter_user_items: [],
+      filter_user_item: null,
+    }
+  },
+  methods: {
+    getFIO: u.getFIO,
+    updateUserItems(query) {
+      let self = this;
+      let filter = {};
+
+      if (query.trim().length !== 0) {
+        filter['NAME_SEARCH'] = query;
+      }
+
+      return bitrixHelper.findUsers(filter).then(users => {
+        self.filter_user_items = users;
+      });
     },
-    props: [],
-    watch: {
-        // TODO: filter by responsibles
-        // 'responsibles': function(value) {
-        //     this.contact = null;
-        // },
+
+    focusUserItems(query) {
+      let self = this;
+      let filter = {};
+
+      return bitrixHelper.findUsers(filter).then(users => {
+        self.filter_user_items = users;
+      });
     },
-    data() {
-        return {
-            items: [],
-            template: ItemTemplate
-        }
-    },
-    methods: {
-        getFIO: u.getFIO,
-        updateUserItems(query) {
-          let self = this;
 
-          let filter = {};
-
-          if (query.trim().length !== 0) {
-            filter['NAME_SEARCH'] = query;
-          }
-
-          //self.setActiveJob("Loading Users");
-          return bitrix.GetUsers(
-            { ID: "ASC" },
-            filter,
-            ["ID","LAST_NAME","NAME","SECOND_NAME"]
-          ).then(users => {
-            self.filter_user_items = users;
-          });
-        },
-        selectItem(item) {
-            if (item && item.ID === this.contact) return;
-
-            this.$emit("input", item);
-        },
-
-        selectUserItem(user) {
-      if (user && user.ID === this.$data.selected_user) return;
-      if (user)
-        this.$data.selected_user = user.ID;
-      else
-        this.$data.selected_user = -1;
+    selectUserItem(item) {
+      this.$emit("input", item);
     },
   }
 }
@@ -104,11 +95,6 @@ input.v-autocomplete-input::-webkit-search-cancel-button {
     height: 8px;
     width: 8px;
     cursor: pointer;
-}
-
-.v-autocomplete .v-autocomplete-input-group.v-autocomplete-selected .v-autocomplete-input {
-	color: #fff;
-	background-color: #5C6BC0;
 }
 
 .v-autocomplete .v-autocomplete-list {

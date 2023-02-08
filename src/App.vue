@@ -22,7 +22,11 @@
                   v-bind:date_to="selectedToDate"
                 />
               </div>
-
+              <div class="menu-filter-block" :class="additional?'':'additional'">
+                <UserSelect
+                  v-model="selectedUser"
+                />
+              </div>
               <div class="filter-field-buttons">
                 <input
                   type="button"
@@ -50,7 +54,6 @@
           </div>
         </div>
       </div>
-
       <div id="workarea-content">
         <ReportTable
           v-bind:tasks="tasks"
@@ -61,14 +64,14 @@
           v-bind:groupIds="groupIds"
           v-bind:elapsedItems="elapsedItems"
           v-bind:elapsedItemIds="elapsedItemIds"
-          v-bind:user="user"
+          v-bind:user="userForReport"
           v-bind:selectedFromDate="selectedFromDate"
           v-bind:selectedToDate="selectedToDate"
           v-on:update:report="setReport"
         />
         <ExcelTable
           v-bind:report="report"
-          v-bind:user="user"
+          v-bind:user="userForReport"
         />
       </div>
     </div>
@@ -90,6 +93,7 @@ import 'vue-loading-overlay/dist/vue-loading.css';
 import ItemTemplate from './ItemTemplate.vue';
 
 import DateSelect from './DateSelector.vue';
+import UserSelect from './UserSelector.vue';
 import ReportTable from './ReportTable.vue';
 import ExcelTable from './ExcelTable.vue';
 
@@ -105,6 +109,7 @@ export default {
   components: {
       Loading,
       DateSelect,
+      UserSelect,
       ReportTable,
       ExcelTable,
   },
@@ -114,6 +119,8 @@ export default {
 
       selectedFromDate: null,
       selectedToDate: null,
+      selectedUser: null,
+      userForReport: null,
 
       additional: false,
 
@@ -121,6 +128,7 @@ export default {
       reportCanGenerate: false,
       reportIsLoading: false,
 
+      users: [],
       tasks: [],
       taskIds: [],
       deals: [],
@@ -152,7 +160,11 @@ export default {
     bitrix.fitWindow(0, 600);
     bitrix.UserCurrent().then(user => {
       self.user = user;
-      console.log('curentUserId', self.user.ID);
+      self.selectedUser = user;
+      self.userForReport = user;
+      if (_.includes(self.user.WORK_POSITION, 'Partner')) {
+        self.additional = true;
+      }
     });
   },
   watch: {
@@ -160,6 +172,15 @@ export default {
       this.reportCanGenerate = !!value;
     },
 
+    'selectedUser': function(value) {
+      let self = this;
+      this.reportCanGenerate = !!value;
+      if (value) {
+        this.selectedUser = value;
+      } else {
+        self.selectedUser = user;
+      }
+    },
   },
   methods: {
     setActiveJob: function(job) {
@@ -175,6 +196,7 @@ export default {
 
       if (cleanSelected) {
         this.cleanSelectedDates();
+        this.cleanSelectedUser();
         this.reportCanGenerate = false;
       }
 
@@ -187,8 +209,8 @@ export default {
       this.elapsedItems = [];
       this.elapsedItemIds = [];
 
-      this.setActiveJob("");
       this.reportExists = false;
+      this.setActiveJob("");
     },
 
     startLoading: function() {
@@ -215,6 +237,8 @@ export default {
       // Empty last report data
       self.cleanReport(false);
 
+      self.userForReport = self.selectedUser;
+
       self.startLoading();
 
       self.loadElapsedItems().then(r => {
@@ -224,91 +248,6 @@ export default {
 
       }).catch(error => self.showError(error));
     },
-
-    // calcTimeForReport: function() {
-
-    //     let self = this;
-
-    //     console.log('CALC TIME FOR REPORT');
-    //     console.log('elapsedItems', this.elapsedItems);
-    //     console.log('tasks', this.tasks);
-    //     console.log('taskIds', this.taskIds);
-
-    //     let total = 0;
-    //     let admin = 0;
-    //     let billed = 0;
-    //     let marketing = 0;
-    //     let proBono = 0;
-    //     let unmarked = 0;
-
-    //     _.each(self.elapsedItems, item => {
-    //       total += Number(item.MINUTES);
-
-    //       if (_.indexOf(self.taskIds, item.TASK_ID) != -1) {
-
-    //         let task = self.getTaskById(item.TASK_ID);
-
-    //         let itemGroupName = self.getGroupNameById(task.GROUP_ID);
-
-    //         if (itemGroupName) {
-    //           switch (cfg.GROUPS[itemGroupName]) {
-    //             case 'Billed':
-    //               if (task.DEAL_ID) {
-    //                 billed += Number(item.MINUTES);
-    //               } else {
-    //                 unmarked += Number(item.MINUTES);
-    //               }
-    //               break;
-    //             case 'Pro bono':
-    //               proBono += Number(item.MINUTES);
-    //               break;
-    //             case 'Marketing':
-    //               marketing += Number(item.MINUTES);
-    //               break;
-    //             case 'Admin':
-    //               admin += Number(item.MINUTES);
-    //               break;
-    //           }
-    //         } else {
-    //           unmarked += Number(item.MINUTES);
-    //         }
-
-
-    //       }
-
-    //     });
-
-    //     console.log('total', total);
-    //     console.log('billed', billed);
-    //     console.log('admin', admin);
-    //     console.log('proBono', proBono);
-    //     console.log('marketing', marketing);
-    //     console.log('unmarked', unmarked);
-
-    //     return 43;
-    //   },
-
-    // getTaskById(taskId) {
-    //   let self = this;
-    //   let  index = _.findIndex(self.tasks, task => {
-    //    return task.ID == taskId;
-    //   });
-
-    //   return self.tasks[index];
-    // },
-
-    // getGroupNameById(GroupId) {
-    //   let self = this;
-
-    //   if (GroupId != 0) {
-    //     let index = _.findIndex(self.groups, group => {
-    //      return group.ID == GroupId;
-    //     });
-    //     return self.groups[index].NAME;
-    //   } else {
-    //     return null;
-    //   }
-    // },
 
 
     getGroupForElapsedItem(taskId) {
@@ -329,7 +268,7 @@ export default {
         bitrixHelper.findElapsedItemsByDatesAndUser(
           self.selectedFromDate,
           self.selectedToDate,
-          self.user.ID
+          self.userForReport.ID
         ).then(items => {
             self.elapsedItems = items;
             self.elapsedItemIds = _.map(items, item => item.ID);
@@ -365,7 +304,6 @@ export default {
           self.deals = deals;
           self.dealIds = _.map(deals, deal => deal.ID);
           self.loadGroups().then(resolve);
-         // LoadGroups self.loadCompanies().then(resolve);
         }).catch(error => reject(error));
       });
     },
@@ -378,17 +316,20 @@ export default {
           self.tasks
         ).then(groups => {
           self.groups = groups;
-          // _.map(groups, group => {
-          //   self.groupIds[group[SUBJECT_NAME]] = group[ID];
-          // });
           resolve();
         }).catch(error => reject(error));
       });
     },
 
+    cleanSelectedUser() {
+      this.selectedUser = this.user;
+      this.userForReport = this.user;
+    },
+
 
     setReport(report) {
-      // TODO: make used union
+      this.reportExists = !!report;
+
       this.report.total = report.total;
       this.report.billed = report.billed;
       this.report.admin = report.admin;
@@ -400,7 +341,6 @@ export default {
       this.report.period = report.period;
       this.report.rows = report.rows;
 
-      this.reportExists = !!report;
       console.log("report", this.report);
     },
 
